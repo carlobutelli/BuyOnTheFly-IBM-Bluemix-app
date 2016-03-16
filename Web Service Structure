@@ -1,0 +1,24 @@
+Web Service Structure:
+
+- index --> Index page I have access to:
+	- sell page
+	- catalog
+	- contact
+	- registration
+
+- catalog --> Here there are all the items for sale in that moment. By clicking on pic I am allowed access to:
+	- item: page with variables which shows the single item required
+
+- item --> Is the page where every single item can be shown. 
+		   It allows the user to buy the item.
+
+- menu --> Menu for every page.
+
+- registration --> Registration form. 
+				   Allow the user to register itself after its authentication with SSO
+
+- sell --> It allows the user to insert an item for sale. The item is saved into the DB. An it is shown in
+		   catalog page.
+
+
+- err

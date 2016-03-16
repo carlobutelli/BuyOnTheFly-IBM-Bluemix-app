@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<!--
+ * A Design by GraphBerry
+ * Author: GraphBerry
+ * Author URL: http://graphberry.com
+ * License: http://graphberry.com/pages/license
+-->
+<html lang="en-us">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>BuyOnTheFly</title>
+
+	<!-- Load fonts -->
+	<link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Lora' rel='stylesheet' type='text/css'>
+
+	<!-- Load css styles -->
+	<link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap.css" />
+	<link rel="stylesheet" type="text/css" href="/stylesheets/font-awesome.css" />
+	<link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
+
+</head>
+<body>
+	<div class="jumbotron home home-fullscreen" id="home">
+		<div class="mask"></div>
+		<a href="./index" class="logo">
+			<img src="img/logo.png" alt="http://buyonthefly-group4.mybluemix.net/">
+		</a>
+		<a href="" class="menu-toggle" id="nav-expander"><i class="fa fa-bars"></i></a>
+		<!-- Offsite navigation -->
+		<nav class="menu">
+			<a href="#" class="close"><i class="fa fa-close"></i></a>
+			<h3>Menu</h3>
+			<ul class="nav">
+				<% if(user) { %><li><a data-scroll onclick="RedirectToProfile();"><%=usrName%></a></li><% } %>
+				<li><a data-scroll onclick="RedirectToIndex();">Home</a></li>
+				<li><a data-scroll onclick="RedirectToSell();">Sell Item</a></li>
+				<li><a data-scroll onclick="RedirectToCatalog();">Catalog</a></li>
+				<li><a data-scroll href="#contact">Contact</a></li>
+				<% if(!user) { %>
+				<li><a data-scroll onclick="RedirectToLogin();">Log In</a></li>
+				<% } else { %>
+				<li><a data-scroll onclick="RedirectToProfile();">Profile</a></li>
+				<li><a data-scroll onclick="RedirectToLogOut();">Log Out</a></li>
+				<% } %>
+				<li><a data-scroll onclick="RedirectToSignUp();">Sign Up</a></li>
+			</ul>
+			<ul class="social-icons">
+				<li><a href=""><i class="fa fa-facebook"></i></a></li>
+				<li><a href=""><i class="fa fa-twitter"></i></a></li>
+				<li><a href=""><i class="fa fa-dribbble"></i></a></li>
+				<li><a href=""><i class="fa fa-behance"></i></a></li>
+				<li><a href=""><i class="fa fa-pinterest"></i></a></li>
+			</ul>
+		</nav>
+		<div class="container">
+			<div class="header-info">
+				<h1>BuyOnTheFLy</h1>
+				<p>Welcome in the first site web where you can sell and buy all the items you<br> 
+				want "on the fly" to everybody lives around you!<br> 
+				Do not wait, the right time to sell is NOW!
+				</p>
+				<a href="sell" class="btn btn-primary">Get In Touch</a>
+			</div>
+		</div>
+	</div>
+	<!-- Services section start -->
+	<section id="services">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4">
+					<div class="service-item">
+						<div class="icon"><i href="sell" class="fa fa-diamond"></i></div>
+						<h3>Sell the item you want!</h3>
+						<p>Do you have something you don't need anymore and you would like to get rid of it
+						   in the fastest way? Log in BuyOnYheFly and Sell IT! Every buyer around you will
+						   receive a message to buy your item!
+
+						</p>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="service-item">
+						<div class="icon"><i class="fa fa-gear"></i></div>
+						<h3>Buy the item you want!</h3>
+						<p>Have you just received a message from a seller? Or, maybe you want to buy something but you are not so sure about what? Log in BuyOnTheFly to find out which items are being sold and...be the fastest! Our policy is "First Come First Served"!
+						</p>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="service-item">
+						<div class="icon"><i class="fa fa-life-ring"></i></div>
+						<h3>Collect the item!</h3>
+						<p>Have you just bought an item? Very well! You can pick up your item in one of the boxes located in the city where you live. The location of the right box will sent directly to you once the transaction has been completed!
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	<!-- Contact section start -->
+	<section>
+		<div class="container">
+			<header>
+				<h2>Get in Touch</h2>
+				<p>Our headquarter is situated nearby the VU University Amsterdam as we are students. Feel free to contact us by filling in the form in the bottom of the page for any issue you deal with.
+				</p>
+			</header>
+			<div class="map-wrapper">
+				<div class="map-canvas" id="map-canvas">Loading map...</div>
+				<div class="marker">
+					<span>We Are Here</span>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-8" id="contact">
+					<h2>Contact Us...</h2>
+					<form class="row" >
+						<div class="form-group col-md-6">
+							<input id="subject" name="name" type="text" placeholder="Your Name" class="form-control" />
+						</div>
+						<div class="form-group col-md-6">
+							<input id="sender" name="mail" type="email" placeholder="Your Email" class="form-control" />
+						</div>
+						<div class="form-group col-md-12">
+							<input id="msgType" name="subject" type="text" placeholder="Type of Request..." class="form-control" />
+						</div>
+						<div class="form-group col-md-12">
+							<textarea id="content" name="message" class="form-control" rows="10" placeholder="Type the Message here"></textarea>
+						</div>
+						<div class="form-group col-md-12">
+							<button id="send_email" class="btn btn-lg btn-primary">Send</button>
+						</div>
+						<span id="message"></span>
+						<!-- <p id="demo"></p> -->
+					</form>
+				</div>
+				<div class="col-md-3 col-md-offset-1">
+					<address>
+						<span>Our Address</span>
+						<p>
+							De Boelelaan 1105<br>
+							1081HV Amsterdam<br>
+							The Netherlands
+						</p>
+					</address>
+					<address>
+						<span>Email</span>
+						<p>mailbuyonthefly@gmail.com</p>
+					</address>
+					<address>
+						<span>Phone</span>
+						<p>+31 123-456-78900</p>
+					</address>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Contact section end -->
+	<!-- Footer start -->
+	<footer>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8">
+					<p>&copy; 2016 BuyOnTheFly. All Rights Reserved.</p>
+				</div>
+				<div class="col-md-4">
+					<ul class="social-icons">
+						<li><a href=""><i class="fa fa-facebook"></i></a></li>
+						<li><a href=""><i class="fa fa-twitter"></i></a></li>
+						<li><a href=""><i class="fa fa-dribbble"></i></a></li>
+						<li><a href=""><i class="fa fa-behance"></i></a></li>
+						<li><a href=""><i class="fa fa-pinterest"></i></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- Footer end  -->
+
+	<!-- Load jQuery -->
+	<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+	<script src="js/yqlgeo.js"></script>
+
+	<!-- Load Booststrap -->
+	<script type="text/javascript" src="js/bootstrap.js"></script>
+
+	<script type="text/javascript" src="js/smooth-scroll.js"></script>
+
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+
+	<!-- Load custom js for theme -->
+	<script type="text/javascript" src="js/init.js"></script>
+
+	<script>
+	window.onload = getCurrentLocation();
+	
+	$(document).ready(function(){
+	    var from,sender,subject,text;
+	    $("#send_email").click(function(){ 
+	    	var name = document.getElementById("subject"); 
+	    	if($("#subject").val() === ''){  
+	    		name.style.backgroundColor = "red";
+	    		$("#message").text("The field is required, please fill it in!");
+	    		return false;
+	    	} else {
+	    		name.style.backgroundColor = "#f1f4f7";
+	    		subject=$("#subject").val();
+	    	}
+	    	if($("#sender").val() === ''){  
+	    		document.getElementById("sender").style.backgroundColor = "red";
+	    		$("#message").text("The field is required, please fill it in!");
+	    		return false;
+	    	} else { 
+	    		document.getElementById("sender").style.backgroundColor = "#f1f4f7";
+	    		sender=$("#sender").val();
+	    	}
+	    	if($("#msgType").val() === ''){  
+	    		document.getElementById("msgType").style.backgroundColor = "red";
+	    		$("#message").text("The field is required, please fill it in!");
+	    		return false;
+	    	} else {
+	    		document.getElementById("msgType").style.backgroundColor = "#f1f4f7";
+	    		type=$("#msgType").val();
+	    	}
+	    	if($("#content").val() === ''){  
+	    		document.getElementById("content").style.backgroundColor = "red";
+	    		$("#message").text("The field is required, please fill it in!");
+	    		return false;
+	    	} else {
+	    		document.getElementById("content").style.backgroundColor = "#f1f4f7";
+	    		text=$("#content").val();
+	    	}
+	        $("#message").text("Sending E-mail...Please wait...");
+	        $.get("/send",{
+	        	sender:sender,
+	        	subject:subject,
+	        	type:type,
+	        	text:text
+	        	},function(data){
+	        		if(data==="sent")
+	        		{
+	            		$("#message").text("Email has been sent. Please check inbox!");
+	        		}
+			});
+	    });
+	});
+	</script>
+
+</body>
+</html>

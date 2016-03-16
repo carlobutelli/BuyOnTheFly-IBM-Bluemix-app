@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>BuyOnTheFly</title>
+
+	<!-- Load fonts -->
+	<link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Lora' rel='stylesheet' type='text/css'>
+
+	<!-- Load css styles -->
+	<link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap.css" />
+	<link rel="stylesheet" type="text/css" href="/stylesheets/font-awesome.css" />
+	<link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
+
+</head>
+<body>
+	<div class="jumbotron home home-fullscreen" id="home">
+		<div class="mask"></div>
+		<a href="./index" class="logo">
+			<img src="../img/logo.png" alt="http://buyonthefly-group4.mybluemix.net/">
+		</a>
+		<a href="" class="menu-toggle" id="nav-expander"><i class="fa fa-bars"></i></a>
+		<!-- Offsite navigation -->
+		
+		<%include menu %>
+		
+		<div class="sell-form">
+			<form class="row" id="registration-form" method="post" action="/register_user">
+				<div class="form-group-sell col-md-6-sell">
+					<input id="username" name="username" type="text" placeholder="Username" class="form-control" />
+				</div>
+				<div class="form-group-sell col-md-6-sell">
+					<input id="email" name="email" type="mail" placeholder="email" class="form-control" />
+				</div>
+				<div class="form-group-sell col-md-12-sell">
+					<input id="location" name="location" type="text" placeholder="Location (i.e. Amsterdam)" class="form-control" />
+				</div>
+				<div class="form-group-sell col-md-12-sell">
+					<button id="register" type="submit" name="submit" class="btn btn-lg btn-primary">Register</button>
+				</div>
+				<span id="message"></span>
+			</form>
+		</div>
+	</div>
+	<footer>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8">
+					<p>&copy; 2016 BuyOnTheFly. All Rights Reserved.</p>
+				</div>
+				<div class="col-md-4">
+					<ul class="social-icons">
+						<li><a href=""><i class="fa fa-facebook"></i></a></li>
+						<li><a href=""><i class="fa fa-twitter"></i></a></li>
+						<li><a href=""><i class="fa fa-dribbble"></i></a></li>
+						<li><a href=""><i class="fa fa-behance"></i></a></li>
+						<li><a href=""><i class="fa fa-pinterest"></i></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- Footer end  -->
+
+	<!-- Load jQuery -->
+	<script type="text/javascript" src="../js/jquery-1.11.2.min.js"></script>
+
+	<!-- Load Booststrap -->
+	<script type="text/javascript" src="../js/bootstrap.js"></script>
+
+	<script type="text/javascript" src="../js/smooth-scroll.js"></script>
+
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+
+	<!-- Load custom js for theme -->
+	<script type="text/javascript" src="../js/init.js"></script>
+	<script>
+	$(document).ready(function(){
+	    var username, email, location;
+	    $("#register").click(function(){  
+	    	if($("#username").val() === ''){  
+	    		document.getElementById("username").style.backgroundColor = "red";
+	    		$("#message").text("The field is required, please fill it in!");
+	    		return false;
+	    	} else {
+	    		document.getElementById("username").style.backgroundColor = "#f1f4f7";
+	    		username=$("#username").val();
+	    	}
+	    	if($("#email").val() === ''){  
+	    		document.getElementById("email").style.backgroundColor = "red";
+	    		$("#message").text("The field is required, please fill it in!");
+	    		return false;
+	    	} else {
+	    		document.getElementById("email").style.backgroundColor = "#f1f4f7";
+	    		email=$("#email").val();
+	    	}
+	    	if($("#location").val() === ''){  
+	    		document.getElementById("location").style.backgroundColor = "red";
+	    		$("#message").text("The field is required, please fill it in!");
+	    		return false;
+	    	} else {
+	    		document.getElementById("location").style.backgroundColor = "#f1f4f7";
+	    		location=$("#location").val();
+	    	}
+	        $("#message").text("User Registration...Please wait");
+
+			/* Send form values to register user */
+			$.ajax({ 
+				type: "POST",
+	            url: "/register_user",
+        	    data: { 
+        	    	username: $('#username').val(),
+        	    	email: $('#email').val(), 
+                	location: $('#location').val()
+                },
+	           	success: function(data) { console.log('Data sent'); },
+	           	error: function(data) { console.log(data); } 
+	       	});
+	    });
+	});
+	</script>
+</body>
+</html>
