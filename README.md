@@ -1,7 +1,7 @@
 # BuyOnTheFly Web Application
 
 ### Intro
-The project has been made for a class at the University and it would represent a simple web application made in **Node.js** and based on the **Express framework** (that provides a robust set of features for web and mobile applications). 
+The project has been made for a class of Developing Services for the Cloud at VU University and it would represent a simple web application made in **Node.js** and based on the **Express framework** (that provides a robust set of features for web and mobile applications). 
 
 The web application, which basically is a simple online store, allows all the subscribed users to sell (and buy) items fastly and in their local area:
 
