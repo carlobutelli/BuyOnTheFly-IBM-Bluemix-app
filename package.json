@@ -1,0 +1,34 @@
+{
+  "name": "BuyOnTheFlyApp",
+  "version": "0.0.1",
+  "description": "Sell and buy items on the fly",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.14.2",
+    "busboy": "^0.2.12",
+    "cfenv": "^1.0.3",
+    "cloudant": "^1.4.1",
+    "cookie-parser": "^1.4.1",
+    "ejs": "^2.4.1",
+    "express": "^4.13.4",
+    "express-session": "^1.13.0",
+    "mime": "^1.3.4",
+    "multer": "^1.1.0",
+    "nano": "^6.2.0",
+    "nodemailer": "^0.7.1",
+    "passport": "^0.3.2",
+    "passport-idaas-openidconnect": "^1.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://hub.jazz.net/git/group4/buyonthefly-group4"
+  },
+  "engines": {
+    "node": "0.12.x"
+  },
+  "author": "Carlo Butelli",
+  "license": "ISC",
+  "homepage": "buyonthefly-group4.mybluemix.net"
+}

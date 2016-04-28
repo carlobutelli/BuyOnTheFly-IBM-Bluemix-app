@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BuyOnTheFly</title>
+
+  <!-- Load fonts -->
+  <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Lora' rel='stylesheet' type='text/css'>
+
+  <!-- Load css styles -->
+  <link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap.css" />
+  <link rel="stylesheet" type="text/css" href="/stylesheets/font-awesome.css" />
+  <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
+  <style>
+      #map {
+        width: 1260px;
+        height: 500px;
+        margin-right: 10px;
+        margin-left: 10px;
+      }
+  </style>
+  </head>
+  <body>
+    <div class="jumbotron home home-fullscreen" id="home">
+      <div class="mask"></div>
+      <a href="./index" class="logo">
+        <img src="../img/logo.png" alt="http://buyonthefly-group4.mybluemix.net/">
+      </a>
+      <a href="" class="menu-toggle" id="nav-expander"><i class="fa fa-bars"></i></a>
+      <!-- Offsite navigation -->
+      
+      <%include menu %>
+        <div class="col-lg-12">
+            <h3 id="page-headerMap" class="page-header">Deliver an Item</h3>
+        </div>
+        <div id="map"></div>
+        <script>
+        var neighborhoods = [
+                ['Centraal', 52.3782623, 4.8973583],
+                ['West', 52.372861, 4.858998],
+                ['Zuid', 52.337345, 4.873607],
+                ['Oost', 52.354536, 4.929004],
+                ['Noord', 52.388783, 4.909742],
+                ['De Wallen', 52.371736, 4.894630],
+                ['De Pijp', 52.351673, 4.894359]
+              ];
+              
+          function initMap() {
+              var mapDiv = document.getElementById('map');
+              var map = new google.maps.Map(mapDiv, {
+                center: {lat: 52.369359, lng: 4.893589},
+                zoom: 13
+              });
+
+              var contentString = '<div id="content">'+
+                          '<h3 style="color: black;">Deliver Box</h3>'+
+                          '<div id="bodyContent">'+
+                          '<p style="color: black;"><b>Busy boxes: </b><span style="color: black;">0</span></p>'+
+                          '<p style="color: black;"><b>Boxes Available: </b><span style="color: black;">2</span></p>'+
+                          '<p><button class="btn btn-primary" id="deliverItem" type="submit">Deliver Item</button></p>'+
+                          '</div></div>';
+
+                var infowindow = new google.maps.InfoWindow({ content: contentString });
+
+                for (var i = 0; i < neighborhoods.length; i++) {
+                  var neighbor = neighborhoods[i];
+                  var marker = new google.maps.Marker({
+                                position: {lat:neighbor[1], lng:neighbor[2]},
+                                map: map,
+                                title: neighbor[0]
+                              });
+                  marker.addListener('click', function() {
+                      infowindow.open(map, marker);
+                  });
+                }
+
+            }
+        </script>
+        <script async defer 
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBkPpCD6N8KJ8iduz2xHRovbFtbSQfPgfU&callback=initMap">
+        </script>
+
+    </div>
+    <footer style="padding: 30px 0;">
+    <div class="container" style="margin-top: -20px;">
+      <div class="row">
+        <div class="col-md-8">
+          <p>&copy; 2016 BuyOnTheFly. All Rights Reserved.</p>
+        </div>
+        <div class="col-md-4">
+          <ul class="social-icons">
+            <li><a href=""><i class="fa fa-facebook"></i></a></li>
+            <li><a href=""><i class="fa fa-twitter"></i></a></li>
+            <li><a href=""><i class="fa fa-dribbble"></i></a></li>
+            <li><a href=""><i class="fa fa-behance"></i></a></li>
+            <li><a href=""><i class="fa fa-pinterest"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- Footer end  -->
+
+  <!-- Load jQuery -->
+  <script type="text/javascript" src="../js/jquery-1.11.2.min.js"></script>
+
+  <!-- Load Booststrap -->
+  <script type="text/javascript" src="../js/bootstrap.js"></script>
+
+  <script type="text/javascript" src="../js/smooth-scroll.js"></script>
+
+  <!-- Load custom js for theme -->
+  <script type="text/javascript" src="../js/init.js"></script>
+  <!-- <script type="text/javascript" src="../js/initMap.js"></script> -->
+
+  </body>
+</html>

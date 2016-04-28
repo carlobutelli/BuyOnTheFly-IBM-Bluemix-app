@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<!--
+ * A Design by GraphBerry
+ * Author: GraphBerry
+ * Author URL: http://graphberry.com
+ * License: http://graphberry.com/pages/license
+-->
+<html lang="en-us">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>BuyOnTheFly</title>
+
+	<!-- Load fonts -->
+	<link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Lora' rel='stylesheet' type='text/css'>
+
+	<!-- Load css styles -->
+	<link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap.css" />
+	<link rel="stylesheet" type="text/css" href="/stylesheets/font-awesome.css" />
+	<link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
+
+</head>
+<body>
+	<div class="jumbotron home home-fullscreen" id="home">
+		<div class="mask"></div>
+		<a href="./index" class="logo">
+			<img src="../img/logo.png" alt="http://buyonthefly-group4.mybluemix.net/">
+		</a>
+		<a href="" class="menu-toggle" id="nav-expander"><i class="fa fa-bars"></i></a>
+		<!-- Offsite navigation -->
+		
+		<%include menu %>
+		
+		<div class="sell-form" id="sellform">
+			<form class="row" id="uploadForm" method="post" enctype="multipart/form-data" action="/register_item">
+				<div class="form-group-sell col-md-6-sell">
+					<input id="name" name="name" type="text" placeholder="Item's Name" class="form-control" />
+				</div>
+				<div class="form-group-sell col-md-6-sell">
+					<input id="price" name="price" type="text" placeholder="Item's price" class="form-control" />
+				</div>
+				<div class="form-group-sell col-md-12-sell">
+					<input id="city" name="city" type="text" placeholder="City (i.e. Amsterdam)" class="form-control" />
+				</div>
+				<div class="form-group-sell col-md-12-sell">
+					<div class="form-control">				
+						<label>Brief Description of the item</label>
+						<textarea id="description" name="description" rows="10"></textarea>
+					</div>
+				</div>
+				<div class="form-group-sell col-md-12-sell">
+					<div class="form-control" id="inputPic">
+						<label>Upload a photo:</label>
+					    <td><input id="itemPhoto" type="file" class="btn btn-info" name="itemPhoto"></td>
+					</div>
+				</div>
+				<div class="form-group-sell col-md-12-sell">
+					<button id="upload-item" type="submit" name="submit" class="btn btn-lg btn-primary">Upload Item</button>
+					<!--<button id="sendButton" class="btn btn-lg btn-primary" onclick="#">Upload Item</button> -->
+				</div>
+				<span id="message"></span>
+				<span id = "status"></span>
+			</form>
+		</div>
+	</div>
+	<footer>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8">
+					<p>&copy; 2016 BuyOnTheFly. All Rights Reserved.</p>
+				</div>
+				<div class="col-md-4">
+					<ul class="social-icons">
+						<li><a href=""><i class="fa fa-facebook"></i></a></li>
+						<li><a href=""><i class="fa fa-twitter"></i></a></li>
+						<li><a href=""><i class="fa fa-dribbble"></i></a></li>
+						<li><a href=""><i class="fa fa-behance"></i></a></li>
+						<li><a href=""><i class="fa fa-pinterest"></i></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- Footer end  -->
+
+	<!-- Load jQuery -->
+	<script type="text/javascript" src="../js/jquery-1.11.2.min.js"></script>
+
+	<!-- Load Booststrap -->
+	<script type="text/javascript" src="../js/bootstrap.js"></script>
+
+	<script type="text/javascript" src="../js/smooth-scroll.js"></script>
+
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery.form/3.51/jquery.form.min.js"></script>
+
+	<!-- Load custom js for theme -->
+	<script type="text/javascript" src="../js/init.js"></script>
+	<script type="text/javascript" src="../js/jQueryfunctionItemPOST.js"></script>
+	<script>
+	//window.onload = getCurrentLocation();
+		
+	</script>
+</body>
+</html>
