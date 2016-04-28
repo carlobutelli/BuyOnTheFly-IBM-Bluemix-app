@@ -1,14 +1,20 @@
-# Node.js Starter Overview
+# BuyOnTheFly Web Application
 
-The Node.js Starter demonstrates a simple, reusable Node.js web application based on the Express framework.
+### Intro
+The project has been made for a class at the University and represents an application (online store) that allows all the subscribed users to sell (and
+buy) items fastly and in their local area.
+A user (seller) who wants to give away old items, he will be able to sell them.
+A user (buyer) will be able to check all the available items around him checking
+prices and gets notified when a new item is available
 
-## Run the app locally
+It is made by using *Node.js* and based on the *Express framework* (that provides a robust set of features for web and mobile applications).
+It also uses Gmail API:
+- to send email to all the users in the same location when an item is available.
+- to receive email when users want to contact an operator to ask something
 
-1. [Install Node.js][]
-2. Download and extract the starter code from the Bluemix UI
-3. cd into the app directory
-4. Run `npm install` to install the app's dependencies
-5. Run `npm start` to start the app
-6. Access the running app in a browser at http://localhost:6001
+### Link to the project
 
-[Install Node.js]: https://nodejs.org/en/download/
+The application should still be running at [http://buyonthefly-group4.mybluemix.net/][]
+
+[http://buyonthefly-group4.mybluemix.net/]: http://buyonthefly-group4.mybluemix.net/
+
