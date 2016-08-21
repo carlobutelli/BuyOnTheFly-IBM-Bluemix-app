@@ -60,9 +60,9 @@ var smtpTransport = nodemailer.createTransport("SMTP",{
     auth: {
       XOAuth2: {
         user: "mailbuyonthefly@gmail.com", 
-        clientId: "1075246027086-ppvch5js9vmlim0klihh97i43j38hmv2.apps.googleusercontent.com",
-        clientSecret: "WUYb_EUn26ECKoEZhSVjz5t2",
-        refreshToken: "1/T5OIpLDqaKTcOhYDpEQyE0vzaCnCSGB8Mrtdb6DR3PY"
+        clientId: "******",
+        clientSecret: "*******",
+        refreshToken: "********"
       }
     }
 });

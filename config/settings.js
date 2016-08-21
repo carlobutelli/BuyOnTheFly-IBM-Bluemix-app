@@ -28,8 +28,8 @@ var config = {
 		{ deviceId: "8", token: "deliverybox" },
 		{ deviceId: "9", token: "deliverybox" }
 	],
-	iot_apiKey: "a-yo44cr-f0vg4m9tyw",    // replace with the key for a generated API token
-	iot_apiToken: "@RYWTeYoEi@VVJHWg!",  // replace with the generated API token
+	iot_apiKey: "********",    // replace with the key for a generated API token
+	iot_apiToken: "@*******!",  // replace with the generated API token
 
 };
 
